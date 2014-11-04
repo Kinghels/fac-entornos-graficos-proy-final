@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<db>
+		<server>localhost</server>
+		<db_name>videoteca_db</db_name>
+		<user>root</user>
+		<pass>root</pass>
+	</db>
+	<mail>
+		<host>smtp.gmail.com</host>
+		<port>587</port>
+		<user>kevin.inghels@gmail.com</user>
+		<password>K2e0v3i1n</password>
+	</mail>
+</configuration>
