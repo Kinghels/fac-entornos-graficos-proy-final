@@ -4,14 +4,21 @@ html, body{
 	margin: 0px;
 	padding: 0px;
 	width: 100%;
+	font-size: 14px;
 }
 #container
 {
 	min-width:981px;
 	padding-bottom:1px;
 	background-color:#f4f4f4;
-	display: flex;
-	flex-direction: column;
+	display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  flex-direction:column;
+	z-index: -1;
 }
 
 #header
@@ -28,9 +35,14 @@ header img
 {
 	border-radius:8px 8px 8px 8px;
 	float:left;
-	height:180px;
-	width:240px;
+	height:150px;
+	width:200px;
 	margin-bottom: 5px;
+}
+#menu-logo{
+	height: 48px;
+	width: 48px;
+	float: right;
 }
 
 #titulo
@@ -44,11 +56,14 @@ header img
 
 #logincontainer
 {
-	border:1px solid white;
+	position: absolute;
+	right: 15px;
+	top: 48px;
 	border-radius:4px;
 	float:right;
 	padding:10px 10px 9px 10px;
 	text-align:right;
+	z-index: 1;
 }
 
 #line-header
@@ -60,15 +75,15 @@ header img
 #busqueda{
 		height:20px;
 		padding:16px;
-	}
 
+	}
 #trace
 {
 	margin-top:0px;
-	float:left;
 	padding-left:10px;
 	border-radius:3px;
-	height: 5px;
+	height: 25px;
+	width: 80%;
 }
 
 #linkcontainer
@@ -77,7 +92,7 @@ header img
 	border-radius:4px;
 }
 
-#rightcol
+aside
 {
 	width:160px;
 	float:right;
@@ -87,7 +102,7 @@ header img
 
 #content
 {
-	min-width:600px;
+	width: 100%;
 	padding: 0px 200px 0px 10px;
 }
 
@@ -116,13 +131,14 @@ header img
 
 #subcontent
 {
-	margin-top:30px;
+	margin-top: 10px;
 	clear:left;
 	min-height:284px;
 	border-radius:4px;
 	background-color:#898F8F;
 	padding:10px;
 	color:white;
+	width: 85%;
 }
 
 .description

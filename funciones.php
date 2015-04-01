@@ -18,7 +18,7 @@ require 'PHPMailer/PHPMailerAutoload.php';
 					</div>
 					<input name="url" id="url" type="hidden" value="'.$path.'" />
 					<label for="loguearse" hidden>Loguearse</label>
-					<input class="ym-button ym-primary" type="button" id="loguearse" name="loguearse" value="Loguearse" onclick="enviar()"/><br />
+					<input class="ym-button ym-primary" type="button" id="loguearse" name="loguearse" value="Loguearse"/><br />
 					<a href="recuperarpass.php">Olvidé mi contraseña</a><br />
 					<a href="registro.php">Registrarme</a>';
 				if(isset($_GET['error']))
