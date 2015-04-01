@@ -18,33 +18,18 @@
 <body>
 	<noscript>No esta permitida la ejecución de scripts en este navegador</noscript>
 	<div id="container">
-		<div id="header">
+		<header>
         	<img src="images/videoLogo.png" alt="Logo UTN" />
             <div id="titulo"><h1>Videoteca</h1>
-            <h2>Sitio De Alquiler de Peliculas Online</h2>
+            <h2>Sitio De Alquiler de Peliculas Online 2</h2>
             
             </div>
-            <div class="dropdown">
-				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-				    Dropdown
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-				</ul>
-			</div>
             <div id="logincontainer" class="box info">
 			<?php
 				loginBox();
 			?>
         	</div>
-        </div>
-        
-   	    <hr id="line-header"/>
-        
+        </header>
 		<nav class="ym-hlist">
 		  <ul>
 		    <li class="active"><strong>Home</strong></li>
@@ -59,6 +44,7 @@
 		    <input class="ym-searchbutton" type="submit" value="Search" />
 		  </form>
 		</nav>
+		<section>
 		<div id="rightcol">
 			Aqui van las peliculas mas alquiladas
 			<?php
@@ -81,15 +67,14 @@
 				
             </div>
         </div>
-        <div class="float-margin-fix"></div>
-        <hr id="line-footer-clear"/>
-		<div id="footer">
+    	</section>
+		<footer>
       		<p id="validador">
                 <a href="http://validator.w3.org/check?uri=referer"><img
                   src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
            	</p>
         	<p class="dimmed">Trabajo Final Entornos Gr&aacute;ficos 2014 - Autor: Inghels Kevin - <a href="sitemap.php">Mapa del Sitio</a></p>
-		</div>
+		</footer>
 	</div>
 </body>
 </html>

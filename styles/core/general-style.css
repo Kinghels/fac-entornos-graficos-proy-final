@@ -1,10 +1,17 @@
 ﻿@charset "utf-8";
 /* CSS Document */
+html, body{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
 #container
 {
 	min-width:981px;
 	padding-bottom:1px;
 	background-color:#f4f4f4;
+	display: flex;
+	flex-direction: column;
 }
 
 #header
@@ -17,7 +24,7 @@
 	padding:10px;
 }
 
-#header img
+header img
 {
 	border-radius:8px 8px 8px 8px;
 	float:left;
