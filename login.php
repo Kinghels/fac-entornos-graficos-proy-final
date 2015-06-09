@@ -1,5 +1,6 @@
 ﻿<?php 
 include "funciones.php";
+
 if(isset($_POST["usuario"]))
 $usuario = $_POST["usuario"];
 else $usuario = "";

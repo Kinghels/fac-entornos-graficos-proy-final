@@ -1,9 +1,12 @@
 <?php
+require 'entidades/usuario.php';
 require 'PHPMailer/PHPMailerAutoload.php';
-	function loginBox(){
-		if (isset($_COOKIE["user"]))
+	function loginBox()
+	{
+		if (isset($_COOKIE["user"])){
 				echo '<p>Bienvenido <a href="perfil.php">'.getNombre().'</a></p><br />
                 <p><a href="logout.php">Cerrar sesión</a></p>';
+		}
 		else{
 				 $path=$_SERVER['REQUEST_URI'];
 				
@@ -22,11 +25,15 @@ require 'PHPMailer/PHPMailerAutoload.php';
 					<a href="recuperarpass.php">Olvidé mi contraseña</a><br />
 					<a href="registro.php">Registrarme</a>';
 				if(isset($_GET['error']))
+				{
 					echo '<span class="errorVisual">Usuario y/o Contraseña incorrectos</span>';
+				}
 				echo '</form>';
 			}
 	}
-	function getNombre()
+	
+	
+	/*function getNombre()
 	{
 	$con = conectar();
 					
@@ -38,7 +45,9 @@ require 'PHPMailer/PHPMailerAutoload.php';
 					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 					return htmlentities($row['apellido'],NULL,'').', '.htmlentities($row['nombre'],NULL,'');
 					
-	}
+	}*/
+	
+	
 	function getNombreUsuario()
 	{
 		$con = conectar();
@@ -329,23 +338,27 @@ require 'PHPMailer/PHPMailerAutoload.php';
 		
 		$nombre = utf8_encode($_REQUEST['nombre']);
 		$apellido = utf8_encode($_REQUEST['apellido']);
-		$email = $_REQUEST['email'];		
-		$cod_carrera = $_REQUEST['carrera'];
-		$id = $_REQUEST['legajo'];
+		$mail = $_REQUEST['email'];
 		$pass = $_REQUEST['pass'];
+		$user = $_REQUEST['user'];
+		$domicilio = $_REQUEST['domicilio'];
+		$telefono = $_REQUEST['telefono'];
 		$con = conectar();
 		
-						
+		$query =  "SELECT idUser FROM `usuarios` where user=".$user.";";
+
 		
-		$query2 = "INSERT INTO `usuarios`(`nombre_usuario`, `apellido_usuario`,`email`, `id_usuario`,`cod_carrera`,`password`) 
-					VALUES ('".$nombre."','".$apellido."','".
-					$email."','".$id."','".$cod_carrera."', MD5('".$pass."'));";
 		
-		$query =  "SELECT id_usuario FROM `usuarios` where id_usuario=".$id.";";
+		
+		$query2 = "INSERT INTO `usuarios`(`user`, `pass`, `nombre`, `apellido`, `domicilio`, `telefono`, `mail`) 
+					VALUES ('".$user."', MD5('".$pass."'),'".$nombre."','".$apellido."','".
+					$domicilio."','".$telefono."','".$mail."');";
+		
+		
 		
 		$existe = mysqli_query($con,$query);
 		
-		if(mysql_num_rows($existe)==0)
+		if(mysqli_num_rows($existe)==0)
 			{
 				$resultado = mysqli_query($con,$query2);
 				if(!$resultado)

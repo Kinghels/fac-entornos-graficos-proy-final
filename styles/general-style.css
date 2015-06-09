@@ -1,0 +1,204 @@
+﻿@charset "utf-8";
+/* CSS Document */
+html, body{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	font-size: 14px;
+}
+#container
+{
+	min-width:981px;
+	padding-bottom:1px;
+	background-color:#f4f4f4;
+	display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  flex-direction:column;
+	z-index: -1;
+}
+
+#header
+{
+	height:140px;
+	min-width:961px;
+	clear:both;
+	border-radius:8px 8px 0px 0px;
+	border-bottom:0px;
+	padding:10px;
+}
+
+header img
+{
+	border-radius:8px 8px 8px 8px;
+	float:left;
+	height:150px;
+	width:200px;
+	margin-bottom: 5px;
+}
+#menu-logo{
+	height: 48px;
+	width: 48px;
+	float: right;
+}
+
+#titulo
+{
+	float: left;
+	color: white;
+	display:inline;
+	line-height:30px;
+	margin:10px;
+ }
+
+#logincontainer
+{
+	position: absolute;
+	right: 15px;
+	top: 48px;
+	border-radius:4px;
+	float:right;
+	padding:10px 10px 9px 10px;
+	text-align:right;
+	z-index: 1;
+}
+
+#line-header
+{
+	clear:both;
+	margin:0px 0px 10px 0px;
+}
+
+#busqueda{
+		height:20px;
+		padding:16px;
+
+	}
+#trace
+{
+	margin-top:0px;
+	padding-left:10px;
+	border-radius:3px;
+	height: 25px;
+	width: 80%;
+}
+
+#linkcontainer
+{
+	margin:0px;
+	border-radius:4px;
+}
+
+aside
+{
+	width:160px;
+	float:right;
+	margin-top:20px;
+	padding: 0px;
+}
+
+#content
+{
+	width: 100%;
+	padding: 0px 200px 0px 10px;
+}
+
+#trace p
+{
+	display:inline;
+	color:rgb(189,214,225);
+}
+
+#trace a
+{
+	text-decoration:none;
+	color:black;
+}
+
+#trace a:hover
+{
+	color:#0000FF;
+}
+
+#line-trace
+{
+	border-color:black;
+	margin:0px 0px;
+}
+
+#subcontent
+{
+	margin-top: 10px;
+	clear:left;
+	min-height:284px;
+	border-radius:4px;
+	background-color:#898F8F;
+	padding:10px;
+	color:white;
+	width: 85%;
+}
+
+.description
+{
+	margin:0px;
+}
+
+.mostread
+{
+	width:400px;
+	margin: 20px 0px;
+	border-radius: 4px;
+	background-color:#72B4E9;
+	padding:5px;
+}
+
+.float-margin-fix
+{
+	clear:both;
+}
+
+#line-footer-clear
+{
+	clear:both;
+	margin: 10px 0px 10px 0px;
+}
+
+#footer
+{
+	clear:both;
+	text-align:center;
+	padding:10px;
+	margin:10px;
+	color:white;
+	border-radius:4px;
+}
+#footer p{
+	margin:2px;
+}
+p#validador{
+	float:right;
+}
+.errorVisual{
+	color:red;
+	font-size:12px;
+	font-style:italic;
+	display:block;
+	text-align: left;
+	
+}
+
+p#subir1
+{
+	text-align: center;
+}
+p#subir2
+{
+	text-align: center;
+}
+.icon{
+	height: 50px;
+	width: 50px;
+}

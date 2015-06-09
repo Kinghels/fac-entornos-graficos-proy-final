@@ -2,7 +2,7 @@
 <configuration>
 	<db>
 		<server>localhost</server>
-		<db_name>videoteca_db</db_name>
+		<db_name>videoteca_entornos</db_name>
 		<user>root</user>
 		<pass>root</pass>
 	</db>

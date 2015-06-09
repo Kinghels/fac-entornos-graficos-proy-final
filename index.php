@@ -2,22 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 	<head>
 		<?php include 'funciones.php';?>
+		
 		<title>Videoteca</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="styles/core/general-style.css" />
-		<link rel="stylesheet" type="text/css" href="styles/menu.css" />
-		<link rel="stylesheet" type="text/css" href="styles/hlist.css" />
-		<link rel="stylesheet" type="text/css" href="styles/form/gray-theme.css" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/css/general-style.css" />
+		<link rel="stylesheet" type="text/css" href="/css/menu.css" />
+		<link rel="stylesheet" type="text/css" href="/css/hlist.css" />
+		<!--<link rel="stylesheet" type="text/css" href="styles/form/gray-theme.css" />-->
 		<link rel="stylesheet" type="text/css" href="styles/core/typography.css" />
-		<link rel="stylesheet" type="text/css" href="styles/forms/gray-theme.css" />
+		<!--<link rel="stylesheet" type="text/css" href="styles/forms/gray-theme.css" />-->
 		<link rel="shortcut icon"  type="image/x-icon" href="images/favicon.ico" />
 		<script src="http://zeptojs.com/zepto.js"></script>
 		<script type="text/javascript" src="js/videoteca.js"></script>
 	</head>
 	<body>
 		<noscript>No esta permitida la ejecución de scripts en este navegador</noscript>
-		<div class="container-fluid">
+		<div class="">
 			<header>
 	        	<img src="images/videoLogo.png" alt="Logo UTN" />
 	            <div id="titulo">
