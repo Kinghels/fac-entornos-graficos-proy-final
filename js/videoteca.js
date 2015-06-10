@@ -1,5 +1,4 @@
-﻿
-$(document).ready(function(){
+﻿$(document).ready(function(){
 	$('#loguearse').on('click', function(){
 		user = document.f1.usuario.value;
 		pass = document.f1.password.value;

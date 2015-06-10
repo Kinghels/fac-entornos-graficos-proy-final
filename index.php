@@ -10,15 +10,16 @@
 		<link rel="stylesheet" type="text/css" href="/css/menu.css" />
 		<link rel="stylesheet" type="text/css" href="/css/hlist.css" />
 		<!--<link rel="stylesheet" type="text/css" href="styles/form/gray-theme.css" />-->
-		<link rel="stylesheet" type="text/css" href="styles/core/typography.css" />
+		<!--<link rel="stylesheet" type="text/css" href="styles/core/typography.css" />-->
 		<!--<link rel="stylesheet" type="text/css" href="styles/forms/gray-theme.css" />-->
 		<link rel="shortcut icon"  type="image/x-icon" href="images/favicon.ico" />
-		<script src="http://zeptojs.com/zepto.js"></script>
+		<script src="js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="js/videoteca.js"></script>
+		<script src="/vendor/js-cookie-master/src/js.cookie.js"></script>
 	</head>
 	<body>
 		<noscript>No esta permitida la ejecución de scripts en este navegador</noscript>
-		<div class="">
+		<div class="container-fluid">
 			<header>
 	        	<img src="images/videoLogo.png" alt="Logo UTN" />
 	            <div id="titulo">
@@ -32,18 +33,16 @@
 				?>
 	        	</div>
 	        </header>
-			<nav class="ym-hlist">
-			  <ul>
-			    <li class="active"><strong>Home</strong></li>
-			    <li><a href="peliculas.php">Peliculas</a></li>
-			    <li><a href="#">Link</a></li>
-			    <li><a href="#">Link</a></li>
-			    <li><a href="#contacto">Contacto</a></li>
-			  </ul>
+			<nav class="row text-left">
+			  <div class="col-md-1 btn"><strong>Home</strong></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="peliculas.php">Peliculas</a></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="#">Link</a></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="#">Link</a></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="#contacto">Contacto</a></div>
 			  <!-- optional search form -->
-			  <form class="ym-searchform">
-			    <input class="ym-searchfield" type="search" placeholder="Search..." />
-			    <input class="ym-searchbutton" type="submit" value="Search" />
+			  <form id="search-form" class="col-md-7">
+			    <input id="searchBox" type="search" placeholder="Search..." />
+			    <input class="btn btn-search" type="submit" value="Search" />
 			  </form>
 			</nav>
 			<section>

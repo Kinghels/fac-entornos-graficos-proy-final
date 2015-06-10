@@ -1,17 +1,18 @@
 <?php
-require 'entidades/usuario.php';
+include 'entidades/usuario.php';
 require 'PHPMailer/PHPMailerAutoload.php';
 	function loginBox()
 	{
+		$usuario = new Usuario;
 		if (isset($_COOKIE["user"])){
-				echo '<p>Bienvenido <a href="perfil.php">'.getNombre().'</a></p><br />
-                <p><a href="logout.php">Cerrar sesión</a></p>';
+				echo '<div id="user-box"><p>Bienvenido <a href="perfil.php">'.$usuario->getNombre().'</a></p><br />
+                <p><a id="btn-end-session" class="btn btn-primary" href="logout.php">Cerrar sesión</a></p></div>';
 		}
 		else{
 				 $path=$_SERVER['REQUEST_URI'];
 				
-				echo '<form class="ym-form" id="login"  name="f1" method="post" action="login.php">
-					<div class="ym-fbox">	
+				echo '<form id="login"  name="f1" method="post" action="login.php">
+					<div class="form-group">	
 						<label for="usuario">Usuario</label>
 						<input type="text" name="usuario" id="usuario" /><br  />
 					</div>
@@ -32,22 +33,6 @@ require 'PHPMailer/PHPMailerAutoload.php';
 			}
 	}
 	
-	
-	/*function getNombre()
-	{
-	$con = conectar();
-					
-					if (mysqli_connect_errno())
-					{
-						echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
-					} 
-					$result = mysqli_query($con,"SELECT apellido, nombre FROM usuarios where idUsuario='".$_COOKIE["user"]."';"); 
-					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-					return htmlentities($row['apellido'],NULL,'').', '.htmlentities($row['nombre'],NULL,'');
-					
-	}*/
-	
-	
 	function getNombreUsuario()
 	{
 		$con = conectar();
@@ -60,6 +45,7 @@ require 'PHPMailer/PHPMailerAutoload.php';
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		return htmlentities($row['nombre'],NULL,'');
 	}
+
 	function getApellidoUsuario()
 	{
 		$con = conectar();
