@@ -1,13 +1,13 @@
 ﻿@charset "utf-8";
+
 /* CSS Document */
 html, body{
-	background-color: #A0A0A0;
 	margin: 0px;
 	padding: 0px;
 	width: 100%;
 	font-size: 14px;
 }
-
+	
 nav{
 	background-color:#377BC1;
 	clear:both;
@@ -16,7 +16,6 @@ nav{
 header
 {
 	color: black;
-	min-width:961px;
 	clear:both;
 	height: 150px;
 	background-color: white;
@@ -46,8 +45,21 @@ header img
 	margin:10px;
  }
 
+#user-box{
+	display:none;
+	font-size: 14px;
+}
+
+#user-box a{
+	color: black;
+}
+#login-box{
+	display:none;
+}
+
 #logincontainer
 {
+	display:none;
 	background-color: #72B4E9;
 	border: 1px, solid;
 	position: absolute;
@@ -60,22 +72,8 @@ header img
 	z-index: 1;
 }
 
-#user-box{
-	font-size: 14px;
-}
-
-#user-box a{
-	color: black;
-}
-
 #search-form{
 	float: left;
-}
-
-#line-header
-{
-	clear:both;
-	margin:0px 0px 10px 0px;
 }
 
 #busqueda{
@@ -83,6 +81,7 @@ header img
 		padding:16px;
 
 	}
+	
 #trace
 {
 	margin-top:0px;
@@ -104,12 +103,6 @@ aside
 	float:right;
 	margin-top:20px;
 	padding: 0px;
-}
-
-#content
-{
-	width: 100%;
-	padding: 0px 200px 0px 10px;
 }
 
 #trace p
@@ -152,38 +145,6 @@ aside
 	margin:0px;
 }
 
-.mostread
-{
-	width:400px;
-	margin: 20px 0px;
-	border-radius: 4px;
-	background-color:#72B4E9;
-	padding:5px;
-}
-
-.float-margin-fix
-{
-	clear:both;
-}
-
-#line-footer-clear
-{
-	clear:both;
-	margin: 10px 0px 10px 0px;
-}
-
-#footer
-{
-	clear:both;
-	text-align:center;
-	padding:10px;
-	margin:10px;
-	color:white;
-	border-radius:4px;
-}
-#footer p{
-	margin:2px;
-}
 p#validador{
 	float:right;
 }

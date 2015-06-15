@@ -1,5 +1,4 @@
 <?php
-include 'entidades/usuario.php';
 require 'PHPMailer/PHPMailerAutoload.php';
 	function loginBox()
 	{
@@ -22,9 +21,9 @@ require 'PHPMailer/PHPMailerAutoload.php';
 					</div>
 					<input name="url" id="url" type="hidden" value="'.$path.'" />
 					<label for="loguearse" hidden>Loguearse</label>
-					<input class="ym-button ym-primary" type="button" id="loguearse" name="loguearse" value="Loguearse"/><br />
+					<input class="btn btn-success" type="button" id="loguearse" name="loguearse" value="Loguearse"/><br />
 					<a href="recuperarpass.php">Olvidé mi contraseña</a><br />
-					<a href="registro.php">Registrarme</a>';
+					<a href="registro.html">Registrarme</a>';
 				if(isset($_GET['error']))
 				{
 					echo '<span class="errorVisual">Usuario y/o Contraseña incorrectos</span>';
@@ -33,43 +32,6 @@ require 'PHPMailer/PHPMailerAutoload.php';
 			}
 	}
 	
-	function getNombreUsuario()
-	{
-		$con = conectar();
-		
-		if (mysqli_connect_errno())
-		{
-			echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
-		}
-		$result = mysqli_query($con,"SELECT nombre FROM usuarios where idUsuario='".$_COOKIE["user"]."';");
-		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		return htmlentities($row['nombre'],NULL,'');
-	}
-
-	function getApellidoUsuario()
-	{
-		$con = conectar();
-		
-		if (mysqli_connect_errno())
-		{
-			echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
-		}
-		$result = mysqli_query($con,"SELECT apellido FROM usuarios where idUsuario='".$_COOKIE["user"]."';");
-		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		return htmlentities($row['apellido'],NULL,'');
-	}
-	function getMail()
-	{
-		$con = conectar();
-		
-		if (mysqli_connect_errno())
-		{
-			echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
-		}
-		$result = mysqli_query($con,"SELECT email FROM usuarios where idUsuario='".$_COOKIE["user"]."';");
-		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		return $row['email'];
-	}
 	function getDomicilio()
 	{
 		$con = conectar();
@@ -319,46 +281,7 @@ require 'PHPMailer/PHPMailerAutoload.php';
 				</div>';
 		}
 	}
-	function nuevoUsuario(){
-		if(@$_REQUEST['action']=='ok'){
-		
-		$nombre = utf8_encode($_REQUEST['nombre']);
-		$apellido = utf8_encode($_REQUEST['apellido']);
-		$mail = $_REQUEST['email'];
-		$pass = $_REQUEST['pass'];
-		$user = $_REQUEST['user'];
-		$domicilio = $_REQUEST['domicilio'];
-		$telefono = $_REQUEST['telefono'];
-		$con = conectar();
-		
-		$query =  "SELECT idUser FROM `usuarios` where user=".$user.";";
-
-		
-		
-		
-		$query2 = "INSERT INTO `usuarios`(`user`, `pass`, `nombre`, `apellido`, `domicilio`, `telefono`, `mail`) 
-					VALUES ('".$user."', MD5('".$pass."'),'".$nombre."','".$apellido."','".
-					$domicilio."','".$telefono."','".$mail."');";
-		
-		
-		
-		$existe = mysqli_query($con,$query);
-		
-		if(mysqli_num_rows($existe)==0)
-			{
-				$resultado = mysqli_query($con,$query2);
-				if(!$resultado)
-					die(mysql_error());		
-				else
-					{
-						setcookie("user",$id);
-						header('Location:index.php');
-					}
-			}
-		else
-			echo '<script type="text/javascript">alert ("Usuario ya existe");</script>';
-		}
-	}
+	
 	function actualizarUsuario(){
 		if(@$_REQUEST['action']=='ok'){
 	

@@ -1,5 +1,6 @@
 ﻿<?php 
 include "funciones.php";
+include "/entidades/usuario.php";
 
 $usuario = new Usuario;
 

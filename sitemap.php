@@ -1,78 +1,100 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
-<head>
-<?php include 'funciones.php';?>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="styles/general-style.css" />
-<link rel="stylesheet" type="text/css" href="styles/menu.css" />
-<link rel="shortcut icon"  type="image/x-icon" href="images/favicon.ico" />
-<script type="text/javascript" src="js/tpfinal.js">
-</script>
-<noscript><p>No esta permitida la ejecución de scripts en este navegador</p></noscript>
-<title>Videoteca</title>
-</head>
-<body>
-	<div id="container">
-		<div id="header">
-        	<img src="images/videoLogo.png" alt="Logo UTN" />
-            <div id="titulo"><h1>Videoteca</h1>
-            <h2>Sitio De Alquiler de Peliculas Online</h2>
-            </div>
-            <div id="logincontainer">
-			<?php
-				loginBox();
-			?>
-        	</div>
-        </div>
-        <hr id="line-header"/>
-        <div id="trace">
-            	<a href="index.php">Home</a>
-            	<p><?PHP echo htmlentities('-->'); ?></p>
-            	<a href="sitemap.php">Mapa del Sitio</a>
-   	    </div>
-		<div id="menu">
-        	<div id="linkcontainer">
-				<ul class="menu1">                
-                    <li><a id="firstleftcollink" class="actual" href="index.php">Home</a></li>
-                    <li><a class="menu" href="apuntes_carreras.php">Estrenos</a></li>
-                    <li><a class="menu" href="#peliculas">Peliculas</a></li>
-                  	<li><a class="menu" href="apuntes_carreras.php">Proximos Estrenos</a></li>
-                    <li><a class="menu" href="apuntes_carreras.php">Alquiler</a></li>
-                    <li><a class="menu" href="contacto.php">Contacto</a></li>
-                    </ul>
-                    <?php busqueda();?>	                       
-			</div>
-        </div>
-		<div id="rightcol">
-			Aqui van las peliculas mas alquiladas
-			<?php
-				//buscarMasVisitados();
-			?>
+	<head>
+		<?php 
+			include 'funciones.php';
+			include '/entidades/usuario.php';
+		?>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Videoteca</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/css/general-style.css" />
+		<link rel="stylesheet" type="text/css" href="/css/menu.css" />
+		<link rel="shortcut icon"  type="image/x-icon" href="images/favicon.ico" />
+		<script src="js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="js/videoteca.js"></script>
+		<script src="/vendor/jquery-cookie/jquery.cookie.js"></script>
+		<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<noscript>No esta permitida la ejecución de scripts en este navegador</noscript>
+		<div class="container-fluid">
+			<header>
+	        	<img class="img-responsive" src="images/videoLogo.png" alt="Logo UTN" />
+	            <div id="titulo">
+	            	<h1>Videoteca</h1>
+	            	<h2>Sitio De Alquiler de Peliculas Online 2</h2>       
+	            </div>
+	            <img id='menu-logo' src="images/ic_menu_48px.svg">
+	            <div id="logincontainer" class="box info">
+	            	<div id="user-box">
+	            		<p>Bienvenido <a href="perfil.php"><?php Usuario::getUser()->getApellidoNombre(); ?></a></p><br />
+                		<p><a id="btn-end-session" class="btn btn-primary">Cerrar sesión</a></p>
+                	</div>
+                	<div id="login-box">
+		            	<form id="login"  name="f1" method="post" action="login.php">
+							<div class="form-group">	
+								<label for="usuario">Usuario</label>
+								<input id="usuario" class="form-control" name="usuario" type="text" /><br  />
+							</div>
+							<div class="form-group">
+								<label for="password">Contraseña</label>
+								<input id="password" class="form-control" name="password" type="password" /><br />
+							</div>
+							<input name="url" id="url" type="hidden" value="'.$path.'" />
+							<label for="loguearse" hidden>Loguearse</label>
+							<input class="btn btn-success" type="button" id="loguearse" name="loguearse" value="Loguearse"/><br />
+							<a href="recuperarpass.php">Olvidé mi contraseña</a><br />
+							<a href="registro.html">Registrarme</a>
+						</form>
+					</div>
+	        	</div>
+	        </header>
+			<nav class="row text-left">
+			  <div class="col-md-1 btn"><strong>Home</strong></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="peliculas.php">Peliculas</a></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="#">Link</a></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="#">Link</a></div>
+			  <div class="col-md-1 btn"><a class="btn btn-default" href="#contacto">Contacto</a></div>
+			  <!-- optional search form -->
+			  <form id="search-form" class="col-md-7">
+			    <input id="searchBox" type="search" placeholder="Search..." />
+			    <input class="btn btn-search" type="submit" value="Search" />
+			  </form>
+			</nav>
+			<section>
+	            <header id="trace">
+	            	<hr id="line-trace"/>
+	           		<p><a href="index.php">Home</a></p>
+	           		<p>--></p>
+	           		<p><a>Site Map</a></p>
+	   	   		</header>
+		   	    <aside>
+					Aqui van las peliculas mas alquiladas
+					<?php
+						//buscarMasAlquiladas();
+					?>
+				</aside>
+           		<div id="subcontent">
+		             <ul>
+		             <li><a href="index.php">Home</a></li>
+		             <li>
+		             	<a href="carreras.php">Carreras</a>
+		             	<ul>
+		             	<?php listarCarrerasMap();?>
+		             	</ul>
+		             </li>
+		             </ul>
+	           	</div>
+	    	</section>
+			<footer>
+	      		<p id="validador">
+	                <a href="http://validator.w3.org/check?uri=referer"><img
+	                  src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+	           	</p>
+	        	<p>Trabajo Final Entornos Gráficos 2014 - Autor: Inghels Kevin - <a href="sitemap.php">Mapa del Sitio</a></p>
+			</footer>
 		</div>
-        <div id="content">
-           <hr id="line-trace"/>
-           <div id="subcontent">
-             <ul>
-             <li><a href="index.php">Home</a></li>
-             <li>
-             	<a href="carreras.php">Carreras</a>
-             	<ul>
-             	<?php listarCarrerasMap();?>
-             	</ul>
-             </li>
-             </ul>
-           </div>
-        </div>
-        <div class="float-margin-fix"></div>
-        <hr id="line-footer-clear"/>
-		<div id="footer">
-      		<p id="validador">
-                <a href="http://validator.w3.org/check?uri=referer"><img
-                  src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
-           	</p>
-			<p>Trabajo Final Entornos Gr&aacute;ficos 2012 - Copyleft - Todos los derechos no reservados - <a href="sitemap.php">Mapa del Sitio</a></p>
-            <p>Autores: Abdo Facundo, Ibars Agust&iacute;n, Inghels Kevin</p>
-		</div>
-	</div>
-</body>
+	</body>
 </html>

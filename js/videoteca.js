@@ -1,32 +1,38 @@
-﻿$(document).ready(function(){
-	$('#loguearse').on('click', function(){
-		user = document.f1.usuario.value;
-		pass = document.f1.password.value;
+﻿$(document).ready(function() {
+	$('#loguearse').on('click', function() {
+		user = $('#usuario').val();
+		pass = $('#password').val();
 		var msj = "";
-		if(user=="" || user==null)
-		{
-			msj+= "Debe ingresar un usuario\n";
+		if (user == "" || user == null) {
+			msj += "Debe ingresar un usuario\n";
 		}
 
-		if(pass=="" || pass==null)
-		{
+		if (pass == "" || pass == null) {
 			msj += "Debe ingresar una contraseña";
 		}
-		if(msj=="")
-		{
+		if (msj == "") {
 			document.f1.submit();
-		}
-		else 
-		{
+		} else {
 			window.alert(msj);
 			return false;
 		}
 	});
 
-	$('#menu-logo').on('click', function(){
-		if($('#logincontainer').css('display')=='none')
-                $('#logincontainer').css('display','block');
-            else
-                $('#logincontainer').css('display','none');
+	$('#menu-logo').on('click', function() {
+		if ($.cookie('user') != undefined && $.cookie('user') != null && $.cookie('user') != "") {
+			$('#user-box').css('display', 'block');
+		} else {
+			$('#login-box').css('display', 'block');
+		}
+		if ($('#logincontainer').css('display') == 'none') {
+			$('#logincontainer').toggle('left');//css('display', 'block');
+		} else {
+			$('#logincontainer').css('display', 'none');
+		}
 	});
-})
+	
+	$('#btn-end-session').click(function(){
+		$.removeCookie('user');
+		location.replace('/index.php');
+	});
+});

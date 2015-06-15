@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "C:\\xampp\\htdocs\\fac-entornos-graficos-proy-final\\entidades",
+            "phpDir": "C:\\xampp\\htdocs\\fac-entornos-graficos-proy-final\\entidades"
+        }
+    }
+}
